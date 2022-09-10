@@ -1,0 +1,10 @@
+POST http://localhost:8080/books
+content-type: application/json
+
+{
+    "title": "O Guia do Mochileiro das Galáxias - Livro 1",
+    "author": "Douglas Adams"
+}
+
+###
+GET http://localhost:8080/books
