@@ -20,3 +20,6 @@ content-type: application/json
     "title": "O Senhor dos Anéis - Trilogia",
     "author": "J.R.R. Tolkien"
 }
+
+###
+DELETE http://localhost:8080/books/631cd7139e59b4288b74e7b9
