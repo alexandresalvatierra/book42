@@ -2,6 +2,15 @@ POST http://localhost:8080/books
 content-type: application/json
 
 {
+    "title": "O Guia do Mochileiro das Galáxias - Livro 1",
+    "author": "Douglas Adams"
+}
+
+###
+POST http://localhost:8080/books
+content-type: application/json
+
+{
     "title": "O Senhor dos Anéis - Livro 1",
     "author": "J.R.R. Tolkien"
 }
@@ -10,10 +19,10 @@ content-type: application/json
 GET http://localhost:8080/books
 
 ###
-GET http://localhost:8080/books/631cd7139e59b4288b74e7b9
+GET http://localhost:8080/books/631cdf3d8cf3565d62dadec8
 
 ###
-PUT http://localhost:8080/books/631cd7139e59b4288b74e7b9
+PUT http://localhost:8080/books/631cdf3d8cf3565d62dadec8
 content-type: application/json
 
 {
@@ -22,4 +31,4 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/books/631cd7139e59b4288b74e7b9
+DELETE http://localhost:8080/books/631cd39fa7d8f223898d40d0
