@@ -1,0 +1,7 @@
+<section
+  class="spinner-container"
+  fxLayoutAlign="center center"
+  *ngIf="this.loadingService.loading$ | async"
+>
+  <mat-spinner></mat-spinner>
+</section>
