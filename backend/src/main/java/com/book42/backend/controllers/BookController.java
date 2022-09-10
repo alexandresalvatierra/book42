@@ -14,6 +14,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,5 +70,15 @@ public class BookController {
       book.setId(bookOptional.get().getId());
       book.setCreated_at(bookOptional.get().getCreated_at());
       return ResponseEntity.status(HttpStatus.OK).body(bookService.save(book));
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Object> deleteBook(@PathVariable(value = "id") String id){
+    Optional<Book> bookOptional = bookService.findById(id);
+    if (!bookOptional.isPresent()) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book is not found.");
+    }
+    bookService.delete(bookOptional.get());
+    return ResponseEntity.status(HttpStatus.OK).body("Book deleted successfully.");
   }
 }
