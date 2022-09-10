@@ -5,6 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.book42.backend.entities.Book;
 import com.book42.backend.repositories.BookRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class BookService {
@@ -17,5 +19,9 @@ public class BookService {
   @Transactional
   public Book save(Book book) {
       return bookRepository.save(book);
+  }
+
+  public Page<Book> findAll(Pageable pageable) {
+    return bookRepository.findAll(pageable);
   }
 }
