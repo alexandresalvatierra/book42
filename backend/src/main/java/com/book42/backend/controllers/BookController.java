@@ -2,6 +2,7 @@ package com.book42.backend.controllers;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,5 +46,14 @@ public class BookController {
   @GetMapping
   public ResponseEntity<Page<Book>> getAllBooks(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
       return ResponseEntity.status(HttpStatus.OK).body(bookService.findAll(pageable));
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<Object> getOneBook(@PathVariable(value = "id") String id){
+    Optional<Book> bookOptional = bookService.findById(id);
+    if (!bookOptional.isPresent()) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book is not found.");
+    }
+    return ResponseEntity.status(HttpStatus.OK).body(bookOptional.get());
   }
 }
