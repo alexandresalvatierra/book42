@@ -1,4 +1,4 @@
-package com.book42.backend.controller;
+package com.book42.backend.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
