@@ -8,3 +8,6 @@ content-type: application/json
 
 ###
 GET http://localhost:8080/books
+
+###
+GET http://localhost:8080/books/631cd7139e59b4288b74e7b9
