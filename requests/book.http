@@ -2,8 +2,8 @@ POST http://localhost:8080/books
 content-type: application/json
 
 {
-    "title": "O Guia do Mochileiro das Galáxias - Livro 1",
-    "author": "Douglas Adams"
+    "title": "O Senhor dos Anéis - Livro 1",
+    "author": "J.R.R. Tolkien"
 }
 
 ###
