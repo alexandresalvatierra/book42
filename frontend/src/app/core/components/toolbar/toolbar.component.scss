@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  position: fixed;
+  top: 0;
+  padding: 0;
+  z-index: 2;
+}
