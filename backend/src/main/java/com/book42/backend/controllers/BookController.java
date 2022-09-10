@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,5 +56,18 @@ public class BookController {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book is not found.");
     }
     return ResponseEntity.status(HttpStatus.OK).body(bookOptional.get());
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Object> updateBook(@PathVariable(value = "id") String id, @RequestBody @Valid BookDto bookDto){
+      Optional<Book> bookOptional = bookService.findById(id);
+      if (!bookOptional.isPresent()) {
+          return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book is not found.");
+      }
+      var book = new Book();
+      BeanUtils.copyProperties(bookDto, book);
+      book.setId(bookOptional.get().getId());
+      book.setCreated_at(bookOptional.get().getCreated_at());
+      return ResponseEntity.status(HttpStatus.OK).body(bookService.save(book));
   }
 }
