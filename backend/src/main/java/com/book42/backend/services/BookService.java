@@ -31,4 +31,9 @@ public class BookService {
   public Optional<Book> findById(String id) {
     return bookRepository.findById(id);
   }
+
+  @Transactional
+  public void delete(Book book) {
+    bookRepository.delete(book);
+  }
 }
