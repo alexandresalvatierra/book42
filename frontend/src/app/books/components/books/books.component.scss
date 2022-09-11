@@ -1,0 +1,16 @@
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+mat-form-field {
+  font-size: 14px;
+}
+form > div,
+mat-form-field,
+button {
+  width: 100%;
+}
+button {
+  max-width: 200px;
+}

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BooksComponent } from './components/books/books.component';
 import { MaterialModule } from '../core/material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 const MODULES = [MaterialModule, RouterModule, FlexLayoutModule];
 
