@@ -1,4 +1,4 @@
-POST http://localhost:8080/books
+POST http://localhost:8080/api/books
 content-type: application/json
 
 {
@@ -7,7 +7,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/books
+POST http://localhost:8080/api/books
 content-type: application/json
 
 {
@@ -16,13 +16,13 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8080/books
+GET http://localhost:8080/api/books
 
 ###
-GET http://localhost:8080/books/631cdf3d8cf3565d62dadec8
+GET http://localhost:8080/api/books/631cdf3d8cf3565d62dadec8
 
 ###
-PUT http://localhost:8080/books/631cdf3d8cf3565d62dadec8
+PUT http://localhost:8080/api/books/631cdf3d8cf3565d62dadec8
 content-type: application/json
 
 {
@@ -31,4 +31,4 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/books/631cd39fa7d8f223898d40d0
+DELETE http://localhost:8080/api/books/631cd39fa7d8f223898d40d0
