@@ -1,3 +1,64 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+@include mat.core();
+$blue-palette: (
+  50: #e0f7ff,
+  100: #b0e9fe,
+  200: #78daff,
+  300: #31ccff,
+  400: #00c0ff,
+  500: #00b4ff,
+  600: #00a5f2,
+  700: #0092df,
+  800: #0081cb,
+  900: #0060aa,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  ),
+);
+
+$black-alpha-palette: (
+  50: #f9f9f9,
+  100: #f3f3f3,
+  200: #eaeaea,
+  300: #dadada,
+  400: #b7b7b7,
+  500: #979797,
+  600: #6e6e6e,
+  700: #5b5b5b,
+  800: #3c3c3c,
+  900: #1c1c1c,
+  contrast: (
+    50: #1c1c1c,
+  ),
+);
+
+$white: #ffffff;
+$black: #000000;
+
+$black-alpha: mat.define-palette($black-alpha-palette, 50);
+
+$book42-primary: mat.define-palette($blue-palette, 800);
+$book42-accent: mat.define-palette($blue-palette, 400);
+$book42-warn: mat.define-palette(mat.$red-palette);
+
+$book42-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $book42-primary,
+      accent: $book42-accent,
+      warn: $book42-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($book42-theme);
+
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
@@ -12,10 +73,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-footer {
-  margin-top: 8px;
-  text-align: center;
-  line-height: 20px;
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 96px 16px;
 }
 
 /* Responsive Styles */
