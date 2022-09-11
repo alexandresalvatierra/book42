@@ -1,8 +1,8 @@
-<mat-toolbar color="secondary">
+<mat-toolbar color="primary">
   <section
     class="container"
     fxLayout="row"
-    fxLayoutAlign="space-between stretch"
+    fxLayoutAlign="space-between center"
   >
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
       <img
@@ -12,5 +12,8 @@
       />
       <span>Bem vindo ao {{ title }}</span>
     </div>
+    <a mat-icon-button routerLink="/home" aria-label="Home">
+      <mat-icon>home</mat-icon>
+    </a>
   </section>
 </mat-toolbar>

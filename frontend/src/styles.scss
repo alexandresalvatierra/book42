@@ -73,11 +73,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
+main .container {
   width: 100%;
   height: 100vh;
 }
-.content {
+main .content {
   max-width: 1440px;
   margin: 0 auto;
   padding: 96px 16px;
