@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 const MODULES = [
   MatToolbarModule,
@@ -42,6 +43,7 @@ const MODULES = [
   MatTooltipModule,
   MatDatepickerModule,
   MatTableModule,
+  MatCardModule,
 ];
 
 @NgModule({
