@@ -3,13 +3,24 @@
     <mat-card-title align="center">Cadastro de Livros</mat-card-title>
     <mat-card-content>
       <form
+        #formDirective="ngForm"
         [formGroup]="form"
         fxLayoutAlign="center center"
         fxLayout="column"
         fxLayoutGap="16px"
-        (ngSubmit)="onSubmit()"
+        (ngSubmit)="onSubmit(formDirective)"
       >
         <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="24px">
+          <mat-form-field appearance="outline" color="primary">
+            <mat-label>Cod.</mat-label>
+            <input
+              matInput
+              placeholder=""
+              value=""
+              formControlName="id"
+              readonly
+            />
+          </mat-form-field>
           <mat-form-field
             appearance="outline"
             color="primary"
@@ -33,15 +44,110 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <button
-          mat-raised-button
-          type="submit"
-          color="primary"
-          fxFlexAlign="end"
-        >
-          CADASTRAR
-        </button>
+        <div fxLayoutAlign="end end" fxLayout="row" fxLayoutGap="24px">
+          <button
+            mat-raised-button
+            type="button"
+            color="secondary"
+            (click)="onCancel()"
+          >
+            CANCELAR
+          </button>
+          <button mat-raised-button type="submit" color="primary">
+            {{ buttonText }}
+          </button>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>
+  <br />
+  <mat-form-field appearance="standard" class="searchInput">
+    <mat-label>Buscar</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder="Buscar"
+      #searchInput
+      (keyup)="applyFilter($event)"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      *ngIf="searchInput.value"
+      (click)="searchInput.value = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z4"
+    matSort
+    matSortActive="title"
+    matSortDisableClear
+    matSortDirection="desc"
+  >
+    <!-- Id -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Código
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+    </ng-container>
+
+    <!-- Título -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Títle</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <strong>{{ element.title }}</strong>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Autor -->
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Autor</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.author }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Loan -->
+    <ng-container matColumnDef="loan">
+      <mat-header-cell *matHeaderCellDef>Emprestar</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a class="loanButton" (click)="onLoan(element)">
+          <mat-icon fontSet="material-icons-outlined" color="primary">
+            event
+          </mat-icon>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Update -->
+    <ng-container matColumnDef="update">
+      <mat-header-cell *matHeaderCellDef>Editar</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a class="updateButton" (click)="onUpdate(element)">
+          <mat-icon fontSet="material-icons-outlined" color="primary">
+            update
+          </mat-icon>
+        </a>
+      </mat-cell>
+    </ng-container>
+    <!-- Delete -->
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef>Excluir</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a class="deleteButton" (click)="onDelete(element)">
+          <mat-icon fontSet="material-icons-outlined" color="warn">
+            delete
+          </mat-icon>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 </div>

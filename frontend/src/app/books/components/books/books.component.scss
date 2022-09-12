@@ -12,5 +12,30 @@ button {
   width: 100%;
 }
 button {
-  max-width: 200px;
+  max-width: 180px;
+}
+.searchInput {
+  max-width: 300px;
+}
+a.loanButton,
+a.updateButton,
+a.deleteButton {
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.4s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+.mat-column-loan,
+.mat-column-update,
+.mat-column-delete {
+  flex: none;
+  width: 64px;
+  justify-content: center;
+}
+.mat-column-loan {
+  width: 72px;
 }
