@@ -19,6 +19,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+
 import { MatCardModule } from '@angular/material/card';
 
 const MODULES = [
@@ -43,6 +45,7 @@ const MODULES = [
   MatTooltipModule,
   MatDatepickerModule,
   MatTableModule,
+  MatSortModule,
   MatCardModule,
 ];
 
